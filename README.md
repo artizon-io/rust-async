@@ -5,4 +5,4 @@ A simple asynchronous runtime + toolset for Rust
 ## Features
 
 - Single-threaded executor
-- `TimerFuture`
+- `TimerFuture` (uses separate thread to do a countdown)
