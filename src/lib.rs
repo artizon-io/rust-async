@@ -11,8 +11,12 @@ use std::{
     task::Context,
 };
 pub use timer_future::TimerFuture;
+pub use and_then_future::AndThenFuture;
+pub use join_future::JoinFuture;
 
 mod timer_future;
+mod and_then_future;
+mod join_future;
 
 /// A simple task executor
 ///
@@ -37,7 +41,7 @@ impl Executor {
                 // `Pin::as_mut()`: convert Box to &mut
                 if future.as_mut().poll(context).is_pending() {
                     // After poll, `Future` is still pending,
-                    // hence we put it back into the `Option`
+                    // hence we set the `Option` value to the `Future`
                     *future_slot = Some(future);
                 }
             }
