@@ -6,3 +6,5 @@ A simple asynchronous runtime + toolset for Rust
 
 - Single-threaded executor
 - `TimerFuture` (uses separate thread to do a countdown)
+- `JoinFuture`
+- `AndThenFuture`
